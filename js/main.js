@@ -80,7 +80,7 @@ function checkMultiplicity (number) {
 function isAnagram(string1, string2) {
     string1 = string1.replace(/\W+/g, "").toLowerCase();
     string2 = string2.replace(/\W+/g, "").toLowerCase();
-    console.log(string1, string2);
+
     if(string1.length !== string2.length) {
         return false;
     }
@@ -90,15 +90,24 @@ function isAnagram(string1, string2) {
 //6 Нужно написать функцию, принимающую строку в качестве аргумента и возвращающую количество гласных, которые содержатся в строке. Гласными являются «a», «e», «i», «o», «u».
 
 function getCountVowels(string) {
-    let vowels = ['a', 'e', 'i', 'o', 'u'];
+    const vowels = {
+        a: true,
+        e: true,
+        i: true,
+        o: true,
+        u: true,
+};
     let countVowels = 0;
 
     for(let i = 0; i < string.length; i++) {
-        for(let j = 0; j < vowels.length; j++) {
-            if(string[i].toLowerCase() === vowels[j]) {
-                countVowels++;
-            }
+        if(vowels[string[i].toLowerCase()]) {
+            countVowels++;
         }
+        // for(let j = 0; j < vowels.length; j++) {
+        //     if(string[i].toLowerCase() === vowels[j]) {
+        //         countVowels++;
+        //     }
+        // }
     }
     return countVowels;
 }
@@ -116,6 +125,10 @@ function GetReverseArray(array) {
 //8 Дан массив с числами. Найдите среднее арифметическое его элементов (сумма элементов, делить на количество)
 
 function GetAverage(array) {
+    if(array.length === 0) {
+         return 0;
+    }
+    
     let sum = 0;
     for(let i = 0; i < array.length; i++) {
         sum += array[i];
