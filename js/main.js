@@ -103,11 +103,6 @@ function getCountVowels(string) {
         if(vowels[string[i].toLowerCase()]) {
             countVowels++;
         }
-        // for(let j = 0; j < vowels.length; j++) {
-        //     if(string[i].toLowerCase() === vowels[j]) {
-        //         countVowels++;
-        //     }
-        // }
     }
     return countVowels;
 }
