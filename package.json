@@ -1,0 +1,31 @@
+{
+  "jestTest": "NODE_OPTIONS=--experimental-vm-modules jest --config=jest.config.js ",
+  "jest": {
+    "transform": {
+      "^.+\\.jsx?$": "babel-jest"
+    }
+  },
+  "scripts": {
+    "test": "jest"
+  },
+  "devDependencies": {
+    "@babel/preset-env": "^7.14.8",
+    "babel-jest": "^27.0.6",
+    "jest": "^27.0.6"
+  },
+  "name": "notsimplejs1",
+  "version": "1.0.0",
+  "main": "index.js",
+  "dependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/folent/notSimpleJS1.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/folent/notSimpleJS1/issues"
+  },
+  "homepage": "https://github.com/folent/notSimpleJS1#readme",
+  "description": ""
+}

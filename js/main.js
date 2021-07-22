@@ -15,7 +15,6 @@ function sortArrayAsc(array) {
     }                     
     return array;
 }
-
 function sortArrayDesc(array) {
     for (let i = 0; i < array.length - 1; i++)
     { 
@@ -35,7 +34,12 @@ function sortArrayDesc(array) {
 //2 Написать функции, которые находят минимальный и максимальные элемент массива. В функцию массив передается в качестве аргумента.
 
 function findMaxValue(arr) {
+    if(arr.length === 0) {
+        return 0;
+    }
+
     let max = 0;
+
     arr.forEach(el => {
       if(el > max) max = el;
     });
@@ -43,7 +47,12 @@ function findMaxValue(arr) {
   }
 
 function findMinValue(arr) {
+    if(arr.length === 0) {
+        return 0;
+    }
+
     let min = arr[0];
+
     arr.forEach(el => {
       if(el < min) min = el;
     });
@@ -53,6 +62,10 @@ function findMinValue(arr) {
 //3 Дана строка; нужно написать функцию, которая позволяет вернуть значение true, если строка является палиндромом, и false — если нет. При этом нужно учитывать пробелы и знаки препинания.
 
 function isPalindrome(string) {
+    if(string.length === 0) {
+         return false;
+    }
+
     return string.toLowerCase() === string.toLowerCase().split('').reverse().join('');
 }
 
@@ -80,6 +93,10 @@ function checkMultiplicity (number) {
 function isAnagram(string1, string2) {
     string1 = string1.replace(/\W+/g, "").toLowerCase();
     string2 = string2.replace(/\W+/g, "").toLowerCase();
+
+    if(string1.length === 0 || string2.length === 0) {
+        return false;
+    }
 
     if(string1.length !== string2.length) {
         return false;
@@ -111,8 +128,8 @@ function getCountVowels(string) {
 
 function GetReverseArray(array) {
     let resultArray = [];
-    for(let i = array.length - 1; i > 0; i--) {
-        resultArray.push(array[i]);
+    for(let i = 0; i < array.length; i++) {
+        resultArray.unshift(array[i]);
     }
     return resultArray;
 }
@@ -168,6 +185,9 @@ function getDecadeNumber(dayNumber) {
     else if (dayNumber > 20 && dayNumber <= 31) {
         return 'Третья декада месяца';
     }
+    else {
+        return 'Такой декады не существует!';
+    }
 }
 
 //12 В переменной month лежит какое-то число из интервала от 1 до 12. Определите в какую пору года попадает этот месяц (зима, лето, весна, осень).
@@ -188,43 +208,63 @@ function getMonthName(month) {
         12: 'Зима'
     }
 
+    if(month > 12 || month < 1) {
+        return 'Такого времени года не существует!';
+    }
+
     return months[month];
 }
 
-let array = [5,1,3,32,3,7,6,22];
+export {
+    sortArrayAsc,
+    sortArrayDesc,
+    findMaxValue,
+    findMinValue,
+    isPalindrome,
+    checkMultiplicity,
+    isAnagram,
+    getCountVowels,
+    GetReverseArray,
+    GetAverage,
+    inArray,
+    transformString,
+    getDecadeNumber,
+    getMonthName
+}
+// let array = [5,1,3,32,3,7,6,22];
 
-let arraySortedAsc = sortArrayAsc(array);
+// let arraySortedAsc = sortArrayAsc(array);
 
-console.log('#1 Asc', arraySortedAsc)
+// console.log('#1 Asc', arraySortedAsc)
 
-let arraySortedDesc = sortArrayDesc(array);
+// let arraySortedDesc = sortArrayDesc(array);
 
-console.log('#1 Desc', arraySortedDesc)
+// console.log('#1 Desc', arraySortedDesc)
 
-let maxValue = findMaxValue(array);
+// let maxValue = findMaxValue(array);
 
-console.log('#2 MaxValue:', maxValue);
+// console.log('#2 MaxValue:', maxValue);
 
-let minValue = findMinValue(array);
+// let minValue = findMinValue(array);
 
-console.log('#2 MinValue:', minValue);
+// console.log('#2 MinValue:', minValue);
 
-console.log('#3', isPalindrome('казак'));
+// console.log('#3', isPalindrome('казак'));
 
-console.log('#4', checkMultiplicity(100));
+// console.log('#4', checkMultiplicity(100));
 
-console.log('#5', isAnagram('Rat.. !', 'ta!! r!?'));
+// console.log('#5', isAnagram('Rat.. !', 'ta!! r!?'));
 
-console.log('#6', getCountVowels("sadgfsaaaa"));
+// console.log('#6', getCountVowels("sadgfsaaaa"));
 
-console.log('#7', GetReverseArray([3, 4, 5, 6, 7, 8]));
+// console.log('#7', GetReverseArray([3, 4, 5, 6, 7, 8]));
 
-console.log('#8', GetAverage([5, 5, 5, 5, 5, 6]))
+// console.log('#8', GetAverage([5, 5, 5, 5, 5, 6]))
 
-console.log('#9', inArray('abC', ['ss', 'sb', 'dsds', 'abC']));
+// console.log('#9', inArray('abC', ['ss', 'sb', 'dsds', 'abC']));
 
-console.log('#10', transformString('123456'));
+// console.log('#10', transformString('123456'));
 
-console.log('#11', getDecadeNumber(1));
+// console.log('#11', getDecadeNumber(1));
 
-console.log('#12', getMonthName(5));
+// console.log('#12', getMonthName(5));
